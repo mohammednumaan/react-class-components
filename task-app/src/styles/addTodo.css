@@ -1,0 +1,18 @@
+.add-todo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+    margin-top: 200px;
+}
+
+#add-todo-input{
+    width: 300px; 
+    padding: 10px;  
+}
+
+#submit-todo{
+    padding: 10px;
+}
+

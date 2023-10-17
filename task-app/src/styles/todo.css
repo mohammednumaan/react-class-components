@@ -1,0 +1,28 @@
+.todo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.all-tasks-container{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    width: 300px;
+    margin-top: 40px;
+
+    border: 1px solid black;
+    border-radius: 16px;
+    
+}
+
+#edit-todo-button{
+    border: 1px solid black;
+    border-radius: 20px;
+
+    padding: 10px;
+}
+
