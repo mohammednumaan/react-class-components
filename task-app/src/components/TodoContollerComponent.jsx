@@ -13,6 +13,7 @@ export default class TodoController extends Component{
         })
 
         this.handleInputChange = this.handleInputChange.bind(this)
+        this.editTasks = this.editTasks.bind(this)
     }
 
     handleInputChange(e){
@@ -24,12 +25,18 @@ export default class TodoController extends Component{
     addTasks(e){
         e.preventDefault()
         const prevState = this.state.tasks
-        console.log(prevState)
         const newTask = {'id' : uuid(), 'title' : this.state.inputValue}
 
         this.setState({
             tasks : [...prevState, newTask],
             inputValue : "",
+        })
+    }
+
+    editTasks(id, title){
+        const prevState = this.state.tasks 
+        this.setState({
+            tasks : prevState.map(task => task.id === id ? Object.assign({}, task, {title}) : task)
         })
     }
 
@@ -39,11 +46,10 @@ export default class TodoController extends Component{
                 <AddTodo addTask={(event) => this.addTasks(event)} inputField={this.state.inputValue} handleChange={this.handleInputChange}  />
 
                 <div className="todo-controller">
-                    {this.state.tasks.map((task) => 
-                        <Fragment key={task.id}>
-                            <Todo title={task.title} />
-                        </Fragment>
-                    )}
+                    <Todo 
+                    todos={this.state.tasks} 
+                    editTasks={this.editTasks}
+                    />
                 </div>
             </>
         )
